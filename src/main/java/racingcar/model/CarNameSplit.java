@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import racingcar.global.errorcode.ErrorCode;
 
 public class CarNameSplit {
 
@@ -17,15 +18,19 @@ public class CarNameSplit {
         separateCarNames(inputCarNames);
     }
 
+    public List<String> getCarNames() {
+        return carNames;
+    }
+
     private void separatorExistsValidation(String inputCarNames) {
         if (!inputCarNames.contains(NAME_SEPARATOR)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.ILLEGAL_SEPARATOR.getMessage());
         }
     }
 
     private void englishInputValidation(String inputCarNames) {
         if (!Pattern.matches(REGULAR_EXPRESSION_OF_ENGLISH, inputCarNames)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.ILLEGAL_TEXT_TYPE.getMessage());
         }
     }
 
