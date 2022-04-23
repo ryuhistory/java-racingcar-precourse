@@ -1,5 +1,7 @@
 package racingcar.model.car;
 
+import racingcar.global.errorcode.ErrorCode;
+
 public class TryCount {
 
     private static final int MINIMUM_VALUE = 1;
@@ -18,13 +20,13 @@ public class TryCount {
 
     private void integerValidation(String inputCount) {
         if (!inputCount.chars().allMatch(Character::isDigit)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.ILLEGAL_TRY_COUNT.getMessage());
         }
     }
 
     private void rangeValidation(String inputCount) {
         if (Integer.parseInt(inputCount) < MINIMUM_VALUE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.ILLEGAL_MINIMUM_COUNT.getMessage());
         }
     }
 }

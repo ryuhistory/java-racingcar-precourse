@@ -25,10 +25,6 @@ public class Cars {
     }
 
     private void nullValidation(CarNameSplit carNameSplit) {
-        if (carNameSplit == null) {
-            throw new IllegalArgumentException();
-        }
-
         if (carNameSplit.getCarNames() == null) {
             throw new IllegalArgumentException();
         }
@@ -53,8 +49,6 @@ public class Cars {
         StringBuilder carPositionSignature = new StringBuilder();
         for (int index = 0; index < carPosition; index++) {
             carPositionSignature = carPositionSignature.append(POSITION_MESSAGE);
-            //System.out.println("포지션 : " + carPositionSignature);
-            //System.out.println("포지션 : " + carPositionSignature);
         }
         return carPositionSignature.toString();
     }
