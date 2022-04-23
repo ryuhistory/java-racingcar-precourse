@@ -10,11 +10,11 @@ public class RandomNumber {
     private int randomNumber;
 
     protected RandomNumber() {
-        randomNumber = Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
+        randomNumber = MINIMUM_RANGE;
     }
 
     public int getRandomNumber() {
-        return randomNumber;
+        return Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
     }
 
 

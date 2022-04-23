@@ -7,9 +7,9 @@ import racingcar.model.GameRule;
 
 public class Cars {
 
-    private static final int NUMBER_FOR_MOVE = 4;
+    private static final String POSITION_MESSAGE = "-";
     private List<Car> values;
-    private TryCount tryCount;
+
 
     public Cars(CarNameSplit carNameSplit) {
         values = new ArrayList<>();
@@ -20,9 +20,8 @@ public class Cars {
         }
     }
 
-    public Cars(Cars cars, TryCount tryCount) {
+    public Cars(Cars cars) {
         this.values = cars.values;
-        this.tryCount = tryCount;
     }
 
     private void nullValidation(CarNameSplit carNameSplit) {
@@ -40,8 +39,47 @@ public class Cars {
     }
 
     public void runGame(GameRule gameRule) {
-        values.forEach(car -> car.moveCar(tryCount, gameRule));
+        values.forEach(car -> car.moveCar(gameRule));
     }
 
+    public void carMovingMessage(int tryCount) {
+        for (Car car : values) {
+            System.out.println(
+                    car.getCarName() + " : " + convertingToPositionMessage(car.getCurrentPosition(tryCount)));
+        }
+    }
+
+    private String convertingToPositionMessage(int carPosition) {
+        StringBuilder carPositionSignature = new StringBuilder();
+        for (int index = 0; index < carPosition; index++) {
+            carPositionSignature = carPositionSignature.append(POSITION_MESSAGE);
+            //System.out.println("포지션 : " + carPositionSignature);
+            //System.out.println("포지션 : " + carPositionSignature);
+        }
+        return carPositionSignature.toString();
+    }
+
+
+    public Car getWinner() {
+        Car winner = null;
+        for (Car car : values) {
+            winner = car.getWinnerCar(winner);
+        }
+        return winner;
+    }
+
+    public List<Car> getSameScoreCars(Car winnerCar) {
+        List<Car> jointWinner = new ArrayList<>();
+        for (Car car : values) {
+            addJointWinnerCar(jointWinner, winnerCar, car);
+        }
+        return jointWinner;
+    }
+
+    private void addJointWinnerCar(List<Car> jointWinner, Car winnerCar, Car comparableCar) {
+        if (winnerCar.isJointWinner(comparableCar)) {
+            jointWinner.add(comparableCar);
+        }
+    }
 
 }

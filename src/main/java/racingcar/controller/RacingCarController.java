@@ -4,19 +4,24 @@ import racingcar.model.CarNameSplit;
 import racingcar.model.GameRule;
 import racingcar.model.car.Cars;
 import racingcar.model.car.TryCount;
+import racingcar.view.GameResultView;
 import racingcar.view.UserInputView;
 
 public class RacingCarController {
 
-    private UserInputView userInputView;
+    private UserInputView userInputView = new UserInputView();
+    private GameResultView gameResultView = new GameResultView();
 
-    public RacingCarController(UserInputView input) {
-        this.userInputView = input;
+    public RacingCarController() {
     }
 
     public void startRacingGame() {
-        Cars cars = new Cars(generateCar(), generateCount());
-        cars.runGame(new GameRule());
+        Cars cars = new Cars(generateCar());
+        GameRule gameRule = new GameRule(generateCount());
+        cars.runGame(gameRule);
+        cars.getWinner();
+        gameResultView.ResultMessage(cars, gameRule);
+
     }
 
     private Cars generateCar() {
