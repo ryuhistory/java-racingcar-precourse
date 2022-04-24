@@ -10,7 +10,7 @@ public class GameResultView {
     private static final String GAME_RESULT_TITLE_MESSAGE = "실행결과";
     private static final String LINE_SEPARATOR = "\n";
     private static final String WINNER_SEPARATOR = ", ";
-    private static final String GAME_RESULT_FINAL_MESSAGE = "최종 우승자 : ";
+    private static final String GAME_RESULT_FINAL_MESSAGE = "최종 우승자: ";
 
     public void ResultMessage(Cars cars, GameRule gameRule) {
         System.out.print(LINE_SEPARATOR);

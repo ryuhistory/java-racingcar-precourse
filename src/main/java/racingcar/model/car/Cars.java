@@ -2,6 +2,7 @@ package racingcar.model.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.global.errorcode.ErrorCode;
 import racingcar.model.CarNameSplit;
 import racingcar.model.GameRule;
 
@@ -26,11 +27,11 @@ public class Cars {
 
     private void nullValidation(CarNameSplit carNameSplit) {
         if (carNameSplit.getCarNames() == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.ILLEGAL_CAR_NULL.getMessage());
         }
 
         if (carNameSplit.getCarNames().size() <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.ILLEGAL_CAR_NULL.getMessage());
         }
     }
 

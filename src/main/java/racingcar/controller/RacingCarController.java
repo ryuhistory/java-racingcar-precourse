@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import racingcar.model.CarNameSplit;
 import racingcar.model.GameRule;
+import racingcar.model.TryCount;
 import racingcar.model.car.Cars;
-import racingcar.model.car.TryCount;
 import racingcar.view.GameResultView;
 import racingcar.view.UserInputView;
 

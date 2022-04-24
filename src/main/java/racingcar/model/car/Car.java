@@ -10,9 +10,6 @@ public class Car {
     private CarName carName;
     private List<Position> positions;
 
-    public Car() {
-    }
-
     public Car(String inputCarName) {
         this.carName = new CarName(inputCarName);
         this.positions = new ArrayList<>();
@@ -26,6 +23,10 @@ public class Car {
 
     public String getCarName() {
         return this.carName.getCarName();
+    }
+
+    public List<Position> getPosition() {
+        return positions;
     }
 
     public int getCurrentPosition(int indexOfPosition) {

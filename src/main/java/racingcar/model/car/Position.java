@@ -6,10 +6,6 @@ public class Position {
     private static final int IDLE_COUNT = 0;
     private int position;
 
-    public Position() {
-        position = IDLE_COUNT;
-    }
-
     public Position(boolean canGoForward) {
         position = calculateCount(canGoForward);
     }
@@ -23,6 +19,13 @@ public class Position {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isMove() {
+        if (this.position == MOVING_COUNT) {
+            return true;
+        }
+        return false;
     }
 
 }

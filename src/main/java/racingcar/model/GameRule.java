@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.model.car.TryCount;
-
 public class GameRule {
 
     private static final int BASE_VALE_FOR_FORWARD = 4;
@@ -20,5 +18,6 @@ public class GameRule {
     public boolean canGoForward() {
         return randomNumber.getRandomNumber() >= BASE_VALE_FOR_FORWARD;
     }
+
 
 }

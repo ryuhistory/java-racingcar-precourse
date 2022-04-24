@@ -17,5 +17,13 @@ public class RandomNumber {
         return Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
     }
 
+    public boolean isTrueOfMinimumValue() {
+        return getRandomNumber() > MINIMUM_RANGE;
+    }
+
+    public boolean isTrueOfMaximumValue() {
+        return getRandomNumber() < MAXIMUM_RANGE;
+    }
+
 
 }
