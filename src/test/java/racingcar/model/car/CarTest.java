@@ -1,6 +1,7 @@
 package racingcar.model.car;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ public class CarTest {
 
     private static final String INPUT_TRY_COUNT = "3";
     private static final String CAR_NAME = "TeCar";
+    private static final String COMPARABLE_CAR = "CCar";
     private GameRule gameRule;
     private Car car;
 
@@ -27,7 +29,14 @@ public class CarTest {
     }
 
     @Test
-    void 자동차_위치_라운드기준() {
-        assertEquals(car.getPosition().size(), Integer.valueOf(INPUT_TRY_COUNT));
+    void 자동차_승자() {
+        Car comparableCar = new Car(COMPARABLE_CAR);
+        assertEquals(car.getWinnerCar(null), car);
+        assertEquals(car.getWinnerCar(comparableCar), car);
+    }
+
+    @Test
+    void 공동_우승자() {
+        assertTrue(car.isJointWinner(car));
     }
 }
