@@ -41,8 +41,10 @@ public class Cars {
 
     public void carMovingMessage(int tryCount) {
         for (Car car : values) {
-            System.out.println(
-                    car.getCarName() + " : " + convertingToPositionMessage(car.getCurrentPosition(tryCount)));
+            String movingMessage = String.format("%s : %s",
+                    car.getCarName(),
+                    convertingToPositionMessage(car.getCurrentPosition(tryCount)));
+            System.out.println(movingMessage);
         }
     }
 
